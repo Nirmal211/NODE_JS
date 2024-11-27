@@ -68,7 +68,8 @@ app.post("/login", async (req, res) => {
 
     if (isPasswordValid) {
       // Create JWT Token
-      const token = jwt.sign({ _id: user._id }, "GOOGLE$7000&0216");
+      // const token = jwt.sign({_id : user.id}, process.env.process.env.JWT_SECRET) // Please uncomment this line
+      const token = jwt.sign({ _id: user._id }, "GOOGLE$7000&0216"); // jwt secret key into .env file
       console.log(token);
 
       res.cookie("JWTToken", token);
